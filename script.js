@@ -78,15 +78,20 @@ function explode(event){
   color="rgb"+color;
   console.log(color);
   for(let i=0;i<10;i++){
-    var piece = $("<div>");
+    let piece = $("<div>");
     piece.addClass("piece");
     piece.css("background-color",color);
-    var randPath = Math.floor(Math.random()*10)
-    var randsize= Math.floor(Math.random()*15)
+    let randPath = Math.floor(Math.random()*10)
+    let randsize= Math.floor(Math.random()*15)
     piece.addClass("path"+randPath);
     piece.css("height",randsize+"px");
     piece.css("width",randsize+"px");
     chosenStar.append(piece);
+    var foreBushes = $('.bush');
+    foreBushes.css("background-color",color);
+    setTimeout(() => {
+      foreBushes.css("background-color",'black');
+    },400);
 
 }
 }
@@ -142,6 +147,7 @@ function init(){
 }
 
 init();
+buildForeground();
 
 function getWindowBottom(){
 windowHeight = $('.ground').css("top");
@@ -216,6 +222,42 @@ setInterval(() => {
 
 }, 3000);
 
+function buildForeground(){
+  for(i=0;i<10;i++){
+    let bush = $("<div>");
+    bush.addClass("bush")
+    let randWidth = Math.random()*20+5;
+    let randHeight = Math.random()*200+100
+    let randplace=Math.random()*90;
+    let innerBush = $("<div>");
+    innerBush.addClass("innerBushFore");
+    bush.append(innerBush);
+    bush.css('height',randHeight+"%");
+    bush.css('width',randWidth+"%");
+    bush.css("left",randplace+"%");
+    // bush.css("background-color","darkgreen");
+    $('.foreground').append(bush);
+
+  }
+}
+function buildMidground(){
+  for(i=0;i<10;i++){
+    let bush = $("<div>");
+    bush.addClass("bush")
+    let randWidth = Math.random()*20+5;
+    let randHeight = Math.random()*200+100
+    let randplace=Math.random()*90;
+    let innerBush = $("<div>");
+    innerBush.addClass("innerBushFore");
+    bush.append(innerBush);
+    bush.css('height',randHeight+"%");
+    bush.css('width',randWidth+"%");
+    bush.css("left",randplace+"%");
+    // bush.css("background-color","darkgreen");
+    $('.foreground').append(bush);
+
+  }
+}
 // background-image: linear-gradient(to top, rgb(73, 64, 46), 10%, rgb(0, 0, 0));
 // Window height: 824px
 // var bodyRect = document.body.getBoundingClientRect(),
