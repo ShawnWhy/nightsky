@@ -1,0 +1,275 @@
+.sky{
+    height: 70%;
+    width:100%;
+    background-image: linear-gradient(to top, rgb(73, 64, 46), 10%, rgb(0, 0, 0));
+    position:absolute;
+    z-index:0;
+
+    }
+  .skyLigjt{
+    height: 70%;
+    width:100%;
+    position:absolute;
+    z-index:0;
+
+    }
+    .ground{
+        height:30%;
+    width:100%;
+    background-image: linear-gradient(to bottom, rgb(95, 84, 62), 5%, rgb(0, 0, 0));
+
+    position:absolute;
+    top:70%;
+    z-index:0;
+    
+    }
+    .background{
+      height:30%;
+  width:100%;
+
+  position:absolute;
+  top:70%;
+  z-index:0;
+  
+  }
+  .midground{
+    height:30%;
+width:100%;
+
+position:absolute;
+top:70%;
+z-index:0;
+
+}
+    .star{
+      position:absolute;
+      top:102%;
+      animation:turnstar 2s infinite linear;
+      transform-origin:center;
+
+    }
+    @keyframes turnstar{
+      0%{transform: rotate(0deg)scale(4);}
+       100%{transform: rotate(360deg)scale(4)}
+    }
+
+
+    body{
+      overflow: hidden;
+  
+  
+  
+    }
+    .meteorSKy{
+      height:100%;
+      width:100%;
+      position:absolute;
+      z-index: 2;
+    }
+    .body{
+      overflow: hidden;
+    }
+  
+    .meteor{
+      width:10px;
+      height:60%;
+      animation:meteorFall 6s both linear;
+      transform-origin: bottom;
+      position:absolute;
+      z-index:1;
+      border-radius:50px;
+  }
+  
+  @keyframes meteorFall {
+      0%{transform:rotate(45deg) translateY(-100%)}
+      100%{transform:rotate(45deg) translateY(200%)}
+  
+  }
+  
+   .building{
+     position:absolute;
+     z-index:1;
+     height:10px;
+     top:100%;
+     transform-origin: bottom;
+    
+  
+   } 
+  
+   
+  
+  
+  
+   .skyLine{
+     width:100%;
+     height:50%;
+    position:absolute;
+    z-index: 1;
+    overflow: hidden;
+  
+  
+  }
+    
+  .skyLine2{
+    height:50%;
+    width:100%;
+    position:absolute;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .captors{
+    height:100%;
+    width:100%;
+    position:absolute;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .captured{
+      position:absolute;
+      width:20px;
+      height:20px;
+      border-radius:10px;
+      z-index: 3
+  }
+
+  .starlist{ 
+      border-radius:2px 2px 2px 2px;     
+      z-index:4;
+      animation:starlist 1s both ;
+      transform-origin: center;
+  }
+
+  @keyframes starlist{
+      0%{transform:translateX(0%)scale(1)}
+      100%{transform:translatex(100%)scale(30); opacity:1%}
+  }
+
+  .clearButton{
+    position:fixed;
+    padding-left:5px;
+    border-radius:3px;
+    z-index:4;
+  }
+  .clearButton:hover{
+    width:100%;
+    background-color: skyblue;
+    opacity: 50%;
+  }
+
+  .veil{
+    animation:veil .5s both
+  }
+
+  @keyframes veil{
+    0%{height:1%}
+    100%{height:50%;opacity:1%}
+  }
+.piece{
+  border-radius:50%;
+  position:absolute;
+  top:102%;
+  transform-origin: center;
+}
+
+.path0{
+  animation: path0 1s both
+}
+.path1{
+  animation: path1 1s both
+}
+    
+.path2{
+  animation: path2 1s both
+}
+    
+.path3{
+  animation: path3 1s both
+}
+    
+.path4{
+  animation: path4 1s both
+}
+    
+.path5{
+  animation: path5 1s both
+}
+.path6{
+  animation: path6 1s both
+}
+.path7{
+  animation: path7 1s both
+}
+.path8{
+  animation: path8 1s both
+}
+.path9{
+  animation: path9 1s both
+}
+.path10{
+  animation: path10 1s both
+}
+
+   
+   
+   
+   
+
+   
+    
+    
+@keyframes  path0{
+0%{transform:rotate(45deg)translateX(0%);opacity:1}
+100%{transform:rotate(45deg)translateX(1300%);opacity:.5}
+
+}
+
+@keyframes path1{
+  0%{transform:rotate(270deg)translateX(0%);opacity:1}
+  100%{transform:rotate(270deg)translateX(2000%);opacity:0}
+  
+  }
+@keyframes path2{
+    0%{transform:rotate(10deg)translateX(0%);opacity:1}
+    100%{transform:rotate(10deg)translateX(5000%);opacity:.8}
+    
+    }
+@keyframes path3{
+      0%{transform:rotate(160deg)translateX(0%);opacity:1}
+      100%{transform:rotate(160deg)translateX(3000%);opacity:.2}
+      
+    }
+@keyframes path4{
+      0%{transform:rotate(27deg)translateX(0%);opacity:1}
+      100%{transform:rotate(27deg)translateX(10000%);opacity:.6}
+      
+      }
+@keyframes path5{
+      0%{transform:rotate(75deg)translateX(0%);opacity:1}
+       100%{transform:rotate(75deg)translateX(1400%);opacity:0}
+        
+      }
+  @keyframes path6{
+        0%{transform:rotate(160deg)translateX(0%);opacity:1}
+         100%{transform:rotate(160deg)translateX(2500%);opacity:0.4}
+          
+        }
+@keyframes path7{
+      0%{transform:rotate(70deg)translateX(0%);opacity:1}
+       100%{transform:rotate(70deg)translateX(1400%);opacity:0}
+        
+      }
+ @keyframes path8{
+      0%{transform:rotate(320deg)translateX(0%);opacity:1}
+       100%{transform:rotate(320deg)translateX(2000%);opacity:0.5}
+        
+      }
+ @keyframes path9{
+      0%{transform:rotate(110deg)translateX(0%);opacity:1}
+       100%{transform:rotate(110deg)translateX(4000%);opacity:0.7}
+        
+      }
+ @keyframes path10{
+      0%{transform:rotate(30deg)translateX(0%);opacity:1}
+       100%{transform:rotate(30deg)translateX(1000%);opacity:0}
+        
+      }
