@@ -3,7 +3,7 @@ var currentColor=
     green:50,
     blue:0
   }
-
+var windowHeight;
 
 
 
@@ -143,20 +143,78 @@ function init(){
 
 init();
 
+function getWindowBottom(){
+windowHeight = $('.ground').css("top");
+    windowHeight= windowHeight.split("px")
+    windowHeight=parseInt(windowHeight[0])
+    console.log(windowHeight)
+    groundtop=$('.ground').css("height");
+    groundtop=groundtop.split('.px')
+    groundtop=parseInt(groundtop[0]);
+    console.log(groundtop)
+    windowHeight+=groundtop
+    console.log(windowHeight);
+}
+getWindowBottom();
+$(window).on("resize",event=>{
+  getWindowBottom();
+
+})
+
+    windowHeight = $('.ground').css("top");
+    windowHeight= windowHeight.split("px")
+    windowHeight=parseInt(windowHeight[0])
+    console.log(windowHeight)
+    groundtop=$('.ground').css("height");
+    groundtop=groundtop.split('.px')
+    groundtop=parseInt(groundtop[0]);
+    console.log(groundtop)
+    windowHeight+=groundtop
+    console.log(windowHeight);
+
+
+setTimeout(() => {
+  
+
+
 setInterval(() => {
   var stars = $(".star")
   for(let i=0;i<stars.length;i++){
-   let windowHeight = window.innerHeight;
-   let star = stars[i].getBoundingCientRect();
-   let starposition = star.top;
-   if(starposition>windowHeight&&starposition<windowHeight+50){
-     
+    star = stars[i].getBoundingClientRect();
+    let tail = $(stars[i]).parent()
+    console.log(tail)
+    let color = tail.css("background-image");
+    color=color.split("rgba")
+    color=color[1];
+    color=color.split(", 0.4");
+    color = color[0]+")"
+    color="rgb"+color;
+    console.log(color);
+
+    starposition = star.top;
+    starLocation = starposition
+   console.log(starLocation);
+   
+   if(starLocation>windowHeight&&starLocation<windowHeight+100){
+     $(".skyLight").css("background-image","linear-gradient(to top, "+color+", 10%, rgb(0, 0, 0)");
+     setTimeout(() => {
+      $(".skyLight").css("background-image","linear-gradient(to top, "+color+", 5%, rgb(0, 0, 0)");
+      setTimeout(() => {
+        $(".skyLight").css("background-image","linear-gradient(to top, black, rgb(0, 0, 0)");
+  
+         
+       }, 50);
+
+       
+     }, 50);
    }
     
   }
 
   
-}, 200);
+}, 500);
+
+}, 3000);
 
 // background-image: linear-gradient(to top, rgb(73, 64, 46), 10%, rgb(0, 0, 0));
 // Window height: 824px
