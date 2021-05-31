@@ -24,29 +24,31 @@
     
     }
     .background{
-      height:30%;
+      height:60%;
   width:100%;
 
   position:absolute;
-  top:70%;
+  top:-20%;
   z-index:0;
+  display: block;
   
   }
   .midground{
-    height:30%;
+    height:100%;
 width:100%;
 
 position:absolute;
-top:70%;
+top:10%;
 z-index:0;
-
+display: block;
 }
+
 .foreground{
-  height:30%;
+  height:50%;
 width:100%;
 
 position:absolute;
-top:70%;
+top:50%;
 z-index:3 ;
 
 }
@@ -73,7 +75,7 @@ z-index:3 ;
       height:100%;
       width:100%;
       position:absolute;
-      z-index: 2;
+      z-index: 0;
     }
     .body{
       overflow: hidden;
@@ -82,10 +84,10 @@ z-index:3 ;
     .meteor{
       width:10px;
       height:60%;
-      animation:meteorFall 6s both linear;
+      animation:meteorFall 8s both linear;
       transform-origin: bottom;
       position:absolute;
-      z-index:1;
+      z-index:0;
       border-radius:50px;
   }
   
@@ -178,6 +180,8 @@ z-index:3 ;
   position:absolute;
   top:102%;
   transform-origin: center;
+  margin:auto;
+  
 }
 
 .path0{
@@ -217,6 +221,39 @@ z-index:3 ;
 .path10{
   animation: path10 1s both
 }
+    
+.path11{
+  animation: path11 1s both
+}
+.path12{
+  animation: path12 1s both
+}
+.path13{
+  animation: path13 1s both
+}
+.path14{
+  animation: path14 1s both
+}
+.path15{
+  animation: path15 1s both
+}
+.path16{
+  animation: path16 1s both
+}
+.path17{
+  animation: path17 1s both
+}
+.path14{
+  animation: path18 1s both
+}
+.path15{
+  animation: path19 1s both
+}
+.path16{
+  animation: path20 1s both
+}
+
+
 
    
    
@@ -254,22 +291,22 @@ z-index:3 ;
       }
 @keyframes path5{
       0%{transform:rotate(75deg)translateX(0%);opacity:1}
-       100%{transform:rotate(75deg)translateX(1400%);opacity:.9}
+       100%{transform:rotate(75deg)translateX(1400%);opacity:1}
         
       }
   @keyframes path6{
         0%{transform:rotate(160deg)translateX(0%);opacity:1}
-         100%{transform:rotate(160deg)translateX(2500%);opacity:0.7}
+         100%{transform:rotate(160deg)translateX(2500%);opacity:1}
           
         }
 @keyframes path7{
       0%{transform:rotate(70deg)translateX(0%);opacity:1}
-       100%{transform:rotate(70deg)translateX(1400%);opacity:.9}
+       100%{transform:rotate(70deg)translateX(1400%);opacity:1}
         
       }
  @keyframes path8{
       0%{transform:rotate(320deg)translateX(0%);opacity:1}
-       100%{transform:rotate(320deg)translateX(2000%);opacity:0.7}
+       100%{transform:rotate(320deg)translateX(2000%);opacity:.9}
         
       }
  @keyframes path9{
@@ -282,15 +319,67 @@ z-index:3 ;
        100%{transform:rotate(30deg)translateX(1000%);opacity:.6}
         
       }
+@keyframes  path11{
+0%{transform:rotate(95deg)translateX(0%);opacity:1}
+100%{transform:rotate(95deg)translateX(1500%);opacity:.5}
+
+}
+
+@keyframes path13{
+  0%{transform:rotate(130deg)translateX(0%);opacity:1}
+  100%{transform:rotate(130deg)translateX(900%);opacity:.8}
+  
+  }
+@keyframes path13{
+    0%{transform:rotate(30deg)translateX(0%);opacity:1}
+    100%{transform:rotate(30deg)translateX(400%);opacity:.8}
+    
+    }
+@keyframes path14{
+      0%{transform:rotate(80deg)translateX(0%);opacity:1}
+      100%{transform:rotate(80deg)translateX(500%);opacity:.8}
+      
+    }
+@keyframes path15{
+      0%{transform:rotate(227deg)translateX(0%);opacity:1}
+      100%{transform:rotate(227deg)translateX(800%);opacity:.6}
+      
+      }
+@keyframes path16{
+      0%{transform:rotate(5deg)translateX(0%);opacity:1}
+       100%{transform:rotate(5deg)translateX(400%);opacity:1}
+        
+      }
+  @keyframes path17{
+        0%{transform:rotate(60deg)translateX(0%);opacity:1}
+         100%{transform:rotate(60deg)translateX(500%);opacity:1}
+          
+        }
+@keyframes path18{
+      0%{transform:rotate(310deg)translateX(0%);opacity:1}
+       100%{transform:rotate(310deg)translateX(3400%);opacity:1}
+        
+      }
+ @keyframes path19{
+      0%{transform:rotate(70deg)translateX(0%);opacity:1}
+       100%{transform:rotate(70deg)translateX(200%);opacity:.9}
+        
+      }
+ @keyframes path20{
+      0%{transform:rotate(180deg)translateX(0%);opacity:1}
+       100%{transform:rotate(180deg)translateX(500%);opacity:0.7}
+        
+      }
 
 .bush{
   position:absolute;
-  border-radius: 50% 50% 5% 5%;
+  border-radius: 80% 80% 5% 5%;
+  border:1px solic black;
   text-align:center;
   transform-origin:bottom;
   transform:translateY(-10%);
   background-color: black;
- 
+  vertical-align: bottom;
  
 
 }
@@ -302,17 +391,88 @@ z-index:3 ;
   height:100%;
   width:100%;
   position:relative;
-  border-radius: 50% 50% 5% 5%;
+  border-radius: 80% 80% 5% 5%;
   
   background-color:black;
   margin:auto;
+  transform:scaleY(.95);
+
   top:2%
+}
+
+.innerBushMid{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height:100%;
+  width:100%;
+  position:relative;
+  border-radius: 80% 80% 5% 5%;
   
-
-
+  background-color:black;
+  margin:auto;
+  transform:scaleY(.7);
+  transform-origin:bottom;
+  top:3%;
 
 }
 
-body{
-  overflow: hidden;
+.innerBushBack{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  height:100%;
+  width:100%;
+  position:relative;
+  border-radius: 80% 80% 5% 5%;
+  
+  background-color:black;
+  margin:auto;
+  transform:scaleY(.3);
+  transform-origin:bottom;
+  top:3%;
+
 }
+
+.store{
+  position:fixed;
+  height:20px;
+  width:220px;
+  border-radius:2px;
+  border: 2px solid rgb(29, 29, 29);
+  bottom:5%;
+  left:2%;
+  z-index:4;
+  display:flex;
+} 
+
+.ammo{
+  height:100%;
+  width:20%;
+}
+.intoMag{
+  animation:intoMag .5s both;
+}
+@keyframes intoMag {
+  0%{transform:translateX(-5px)}
+  100%{transform:translateX(0px)}
+}
+.fireworksBall{
+  height:20px;
+  width:20px;
+  border-radius:10px;
+  position:absolute;
+  text-align: center;
+  left:49%;
+  transform-origin:bottom;
+  top:100%;
+  animation: fireBallRise 2s both;
+  
+}
+
+@keyframes fireBallRise {
+  0%{transform:translateY(0)}
+ 90%{opacity:1}
+100%{transform:translateY(-3000%);opacity:0}
+}
+

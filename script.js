@@ -77,11 +77,12 @@ function explode(event){
   color = color[0]+")"
   color="rgb"+color;
   console.log(color);
-  for(let i=0;i<10;i++){
+  createPallet(color);
+  for(let i=0;i<15;i++){
     let piece = $("<div>");
     piece.addClass("piece");
     piece.css("background-color",color);
-    let randPath = Math.floor(Math.random()*10)
+    let randPath = Math.floor(Math.random()*20)
     let randsize= Math.floor(Math.random()*15)
     piece.addClass("path"+randPath);
     piece.css("height",randsize+"px");
@@ -106,13 +107,13 @@ explode(event);
 var tail = $(event.target).parent();
 tail.css("opacity",".5")
 setTimeout(() => {
-  tail.css("opacity","0")
+  tail.css("opacity","1")
   setTimeout(() => {
     tail.remove()
     
   }, 1200);
   
-}, 200);
+}, 100);
 event.target.remove();
 
 })
@@ -148,6 +149,8 @@ function init(){
 
 init();
 buildForeground();
+buildMidground();
+buildBackground();
 
 function getWindowBottom(){
 windowHeight = $('.ground').css("top");
@@ -180,9 +183,6 @@ $(window).on("resize",event=>{
 
 
 setTimeout(() => {
-  
-
-
 setInterval(() => {
   var stars = $(".star")
   for(let i=0;i<stars.length;i++){
@@ -193,34 +193,34 @@ setInterval(() => {
     color=color.split("rgba")
     color=color[1];
     color=color.split(", 0.4");
-    color = color[0]+")"
+    color = color[0]+",0.3)"
     color="rgb"+color;
     console.log(color);
-
     starposition = star.top;
     starLocation = starposition
-   console.log(starLocation);
+    console.log(starLocation);
    
    if(starLocation>windowHeight&&starLocation<windowHeight+100){
      $(".skyLight").css("background-image","linear-gradient(to top, "+color+", 10%, rgb(0, 0, 0)");
      setTimeout(() => {
       $(".skyLight").css("background-image","linear-gradient(to top, "+color+", 5%, rgb(0, 0, 0)");
       setTimeout(() => {
-        $(".skyLight").css("background-image","linear-gradient(to top, black, rgb(0, 0, 0)");
-  
-         
-       }, 50);
-
-       
-     }, 50);
+        $(".skyLight").css("background-image","linear-gradient(to top, black, rgb(0, 0, 0)");   
+       }, 200);  
+     }, 200);
    }
-    
-  }
-
-  
-}, 500);
-
+  }  
+}, 1000);
 }, 3000);
+
+function createPallet(color){
+  var pallet = $("<div>")
+  pallet.addClass("ammo")
+  pallet.addClass('intoMag')
+  pallet.css("background-color",color);
+  $('.store').append(pallet)
+
+}
 
 function buildForeground(){
   for(i=0;i<10;i++){
@@ -244,20 +244,96 @@ function buildMidground(){
   for(i=0;i<10;i++){
     let bush = $("<div>");
     bush.addClass("bush")
-    let randWidth = Math.random()*20+5;
-    let randHeight = Math.random()*200+100
+    let randWidth = Math.random()*10+5;
+    let randHeight = Math.random()*80+20
     let randplace=Math.random()*90;
     let innerBush = $("<div>");
-    innerBush.addClass("innerBushFore");
+    innerBush.addClass("innerBushMid");
     bush.append(innerBush);
     bush.css('height',randHeight+"%");
     bush.css('width',randWidth+"%");
     bush.css("left",randplace+"%");
+    bush.css("top","-10%");
     // bush.css("background-color","darkgreen");
-    $('.foreground').append(bush);
+    $('.midground').append(bush);
 
   }
 }
+
+function buildBackground(){
+  for(i=0;i<10;i++){
+    let bush = $("<div>");
+    bush.addClass("bush")
+    let randWidth = Math.random()*5+5;
+    let randHeight = Math.random()*10+20
+    let randplace=Math.random()*90;
+    let innerBush = $("<div>");
+    innerBush.addClass("innerBushBack");
+    bush.append(innerBush);
+    bush.css('height',randHeight+"%");
+    bush.css('width',randWidth+"%");
+    bush.css("left",randplace+"%");
+    bush.css("top","20%");
+    // bush.css("background-color","darkgreen");
+    $('.background').append(bush);
+
+  }
+}
+
+function createOneFirework(color){
+  console.log('ball')
+  var ball = $("<div>");
+  ball.addClass("fireworksBall")
+  ball.css("background-color",color);
+
+  for(let i=0;i<35;i++){
+    let piece = $("<div>");
+    piece.addClass("piece");
+    piece.css("background-color",color);
+    let randPath = Math.floor(Math.random()*20)
+    let randsize= Math.floor(Math.random()*15)
+    piece.addClass("path"+randPath);
+    piece.css("height",randsize+"px");
+    piece.css("width",randsize+"px");
+    piece.css("animation-delay","1.5s");
+    piece.css("bottom","50%");
+
+    ball.append(piece);
+    $('.meteorSky').append(ball);
+
+    var foreBushes = $('.bush');
+  setTimeout(() => {
+    
+
+    foreBushes.css("background-color",color);
+    setTimeout(() => {
+      foreBushes.css("background-color",'black');
+    },400);
+  }, 1500);
+
+}
+}
+
+function fireWorks(){
+  console.log("firework")
+  var ammocache = $(".ammo")
+  for(let i=0;i<ammocache.length;i++){
+    setTimeout(() => {
+      let color = $(ammocache[i]).css("background-color");
+      createOneFirework(color)
+      $(ammocache[i]).remove()
+      
+    }, i*500);
+  }
+}
+$('.store').on("click",event=>{
+  console.log('fireworkds')
+  event.stopPropagation();
+  event.preventDefault();
+  fireWorks()
+})
+
+
 // background-image: linear-gradient(to top, rgb(73, 64, 46), 10%, rgb(0, 0, 0));
 // Window height: 824px
 // var bodyRect = document.body.getBoundingClientRect(),
